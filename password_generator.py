@@ -1,28 +1,26 @@
 import random
 import string
 
-while True:
-    print("\nPassword Generator")
-    print("1 Generate password")
-    print("2 Exit")
+length = int(input("Enter password length: "))
 
-    choice = input("Enter your choice: ")
+letters = string.ascii_letters
+digits = string.digits
+symbols = string.punctuation
 
-    if choice == "1":
-        length = int(input("Enter password length: "))
+password = []
 
-        characters = string.ascii_letters + string.digits + string.punctuation
+# guarantee one of each
+password.append(random.choice(letters))
+password.append(random.choice(digits))
+password.append(random.choice(symbols))
 
-        password = ""
+all_characters = letters + digits + symbols
 
-        for i in range(length):
-            password += random.choice(characters)
+for i in range(length - 3):
+    password.append(random.choice(all_characters))
 
-        print("Generated Password:", password)
+random.shuffle(password)
 
-    elif choice == "2":
-        print("Goodbye!")
-        break
+final_password = "".join(password)
 
-    else:
-        print("Invalid choice")
+print("Generated Password:", final_password)
