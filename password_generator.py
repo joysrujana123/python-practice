@@ -1,13 +1,28 @@
 import random
 import string
 
-length = int(input("Enter password length: "))
+while True:
+    print("\nPassword Generator")
+    print("1 Generate password")
+    print("2 Exit")
 
-characters = string.ascii_letters + string.digits + string.punctuation
+    choice = input("Enter your choice: ")
 
-password = ""
+    if choice == "1":
+        length = int(input("Enter password length: "))
 
-for i in range(length):
-    password += random.choice(characters)
+        characters = string.ascii_letters + string.digits + string.punctuation
 
-print("Generated Password:", password)
+        password = ""
+
+        for i in range(length):
+            password += random.choice(characters)
+
+        print("Generated Password:", password)
+
+    elif choice == "2":
+        print("Goodbye!")
+        break
+
+    else:
+        print("Invalid choice")
